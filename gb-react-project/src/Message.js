@@ -3,8 +3,8 @@ import React from 'react'
 export default function Message(props) {
     
   return (
-    <div>hello, {props.name}</div>
+    <h1>hello, {props.myName}</h1>
   )
 }
 
-Message.defaultProps = {name: 'Alex'}
+//Message.defaultProps = {name: 'Alex'}
