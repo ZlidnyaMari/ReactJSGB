@@ -1,8 +1,10 @@
 import React from 'react'
 
-export default function Message() {
+export default function Message(props) {
     
   return (
-    <div>hello world</div>
+    <div>hello, {props.name}</div>
   )
 }
+
+Message.defaultProps = {name: 'Alex'}
