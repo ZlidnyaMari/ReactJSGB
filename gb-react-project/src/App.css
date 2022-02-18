@@ -1,24 +1,21 @@
 
-* {
-  margin-left: 50px;
+body {
+  background-color: #e8e8e8;
 }
 
-.messeng {
+.messageBox {
   display: flex;
-  margin-top: 50px;
-  outline: none;
-  height: 80px;
-  width: 300px;
-  padding: 10px;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
   
-}
-.list {
-border: 1px solid black;
-height: 300px;
-width: 300px;
+.messegelist {
+background-color: azure;
+border: 1px solid #A9A9A9;
+border-radius: 5px;
+min-height: 300px;
+max-width: 460px;
 list-style-type: none;
-padding: 0;
-}
-.listAutor{
-  font-size: 9px;
+padding: 15px;
+box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
 }

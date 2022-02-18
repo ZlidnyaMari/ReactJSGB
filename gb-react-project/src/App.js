@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import {useState} from 'react';
+import { useState } from 'react';
 import { AUTORS } from './constant/constant';
-
-
+import Button from '@mui/material/Button';
+import { Send } from "@mui/icons-material";
+import { TextField } from '@mui/material';
+import { Container } from '@mui/material';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import AndroidIcon from '@mui/icons-material/Android';
+import MessageIcon from '@mui/icons-material/Message';
 
 function App() {
   const [messegeList, setMessegeList] = useState([]);
@@ -14,10 +22,12 @@ function App() {
   }
 
   let handler = () => {
-    if (value != '') {
+    if (value !== '') {
       setMessegeList([...messegeList, {
-        autor: AUTORS.me,
+        icon: <MessageIcon />,
         text: value,
+        autor: AUTORS.me,
+
       }]);
 
       setValue('');
@@ -26,30 +36,34 @@ function App() {
 
   useEffect(() => {
     if (messegeList.length > 0 && messegeList[messegeList.length - 1].autor === AUTORS.me) {
-      setTimeout( () => setMessegeList([...messegeList, {
+      setTimeout(() => setMessegeList([...messegeList, {
 
+        icon: <AndroidIcon />,
+        text: 'Привет, я бот',
         autor: AUTORS.bot,
-        text: 'Привет, я бот'
 
-      }]), 1500) 
+      }]), 1500)
     }
   }, [messegeList])
 
   return (
-    <div className='container'>
-      <textarea className='messeng' value={value} type='text' placeholder='Введите сообщение' onChange={textHandler}  ></textarea>
-      <button className='button' onClick={handler}>Отправить</button>
+    <Container maxWidth="sm" sx={{ mt: '5rem' }}>
+      <div className='messageBox'>
+        <TextField autoFocsus fullWidth variant='standard' label="Сообщение" value={value} onChange={textHandler}></TextField>
+        <Button variant="contained" endIcon={<Send />} onClick={handler}>Send</Button>
+      </div>
 
-      <ul className='list'>
-        {messegeList.map((item) => (
-          <>
-            <li className='listAutor'>{item.autor}</li>
-            <li className='listText'>{item.text}</li>
-          </>
-        ))}
-      </ul>
-
-    </div>
+      <div className='messegelist'>
+        <List>
+          {messegeList.map((item, index) => (
+            <ListItem disable='true' key={index}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    </Container>
   );
 }
 
