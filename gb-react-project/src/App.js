@@ -12,6 +12,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AndroidIcon from '@mui/icons-material/Android';
 import MessageIcon from '@mui/icons-material/Message';
+import { Chat } from './component/Chat';
+
 
 function App() {
   const [messegeList, setMessegeList] = useState([]);
@@ -48,20 +50,26 @@ function App() {
 
   return (
     <Container maxWidth="sm" sx={{ mt: '5rem' }}>
-      <div className='messageBox'>
-        <TextField autoFocsus fullWidth variant='standard' label="Сообщение" value={value} onChange={textHandler}></TextField>
-        <Button variant="contained" endIcon={<Send />} onClick={handler}>Send</Button>
-      </div>
-
-      <div className='messegelist'>
-        <List>
-          {messegeList.map((item, index) => (
-            <ListItem disable='true' key={index}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
-        </List>
+      <div className='chatBox'>
+        <>
+          <Chat />
+        </>
+        <div className='messenger'>
+          <div className='messageBox'>
+            <TextField autoFocus fullWidth variant='standard' label="Сообщение" value={value} onChange={textHandler}></TextField>
+            <Button variant="contained" endIcon={<Send />} onClick={handler}>Send</Button>
+          </div>
+          <div className='messegelist'>
+            <List>
+              {messegeList.map((item, index) => (
+                <ListItem disable='true' key={index}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        </div>
       </div>
     </Container>
   );
