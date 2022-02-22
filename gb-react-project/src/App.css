@@ -17,8 +17,16 @@ body {
   padding-bottom: 60px;
   box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
   background-color: azure;
-  max-width: 440px;
+  max-width: 500px;
+}
+.chatBox ul {
+  padding-top: 70px;
+}
 
+.navChat {
+ display: flex;
+ flex-direction: column;
+ padding-left: 14px;
 }
   
 .messegelist {
