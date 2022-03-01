@@ -1,40 +1,24 @@
-import { ListItemButton } from '@mui/material'
-import List from '@mui/material/List';
 import React from 'react'
-import { AUTORS } from '../constant/constant';
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import List from '@mui/material/List';
+import { ListItemButton } from '@mui/material';
 
 
-const Chats = () => {
-  // const [ chats, setChats] = useState(chatsList);
-
-  const {chatsId} = useParams();
-
-  const chatsList = {
-    id1: {
-        name: 'chat 1',
-        mesages: [{ text: 'fistMessage', autor: AUTORS.me}]   
-    },
-    id2: {
-        name: 'chat 2',
-        mesages: [{ text: 'secondChat', autor: AUTORS.bot}] 
-    },
-  }
+const ChatList = (props) => {
+  //const { chatsId } = useParams;
+  const { chats } = props;
 
   return (
-      <>
       <List>
-          {Object.keys(chatsList).map((id) => (
-              <ListItemButton>
-                  <Link to = {`/Chats/${id}`} >
-                  {chatsList[id].name} 
-                  </Link>
-              </ListItemButton> 
-          ))}
+        {Object.keys(chats).map((id, index) => (
+          <ListItemButton key={index}>
+            <Link to={`/chats/${id}`} >
+             {chats?.[id]?.name}
+            </Link>
+          </ListItemButton>
+        ))}
       </List>
-      </>
   )
 }
 
-export default Chats
+export default ChatList;

@@ -1,7 +1,14 @@
 import React from 'react'
+import ChatList  from '../component/ChatList'
 
-export default function Notfound() {
+const Notfound = (props) => {
+  console.log(props);
   return (
-    <div>Страница не найдена</div>
+    <div>
+      <ChatList chats = {props.chats}/>
+      <div>Страница не найдена</div>
+    </div>
   )
 }
+
+export default Notfound;

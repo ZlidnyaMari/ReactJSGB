@@ -19,9 +19,6 @@ body {
   background-color: azure;
   max-width: 500px;
 }
-.chatBox ul {
-  padding-top: 70px;
-}
 
 .navChat {
  display: flex;
@@ -38,4 +35,10 @@ max-width: 460px;
 list-style-type: none;
 padding: 15px;
 box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  align-items: center;
 }
