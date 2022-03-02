@@ -12,21 +12,9 @@ import Notfound from './pages/Notfound';
 import { ListItemButton } from '@mui/material';
 import { Routes, Route, Link } from 'react-router-dom';
 
-const chatsList = {
-  id1: {
-    name: 'chat1',
-    messages: [{ text: 'fistMessage', autor: AUTORS.me }]
-  },
-  id2: {
-    name: 'chat2',
-    messages: [{ text: 'secondChat', autor: AUTORS.bot }]
-  },
-}
-
 
 function App() {
-  const [chats, setChats] = useState(chatsList);
-
+ 
 
   return (
     <Container maxWidth="sm" sx={{ mt: '5rem' }}>
@@ -55,9 +43,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/chats/:chatsId' element={
-            <Chats chats = {chats} setChats = {(chat) => setChats(chat)} />} />
-          <Route path='*' element={ <Notfound chats= {chats} /> } />
+          <Route path='/chats/:chatId' element={
+            <Chats />} />
+          <Route path='*' element={ <Notfound /> } />
         </Routes>
       </>
       </div>
