@@ -1,4 +1,4 @@
-import { EXAMPLE_ACTION } from "./actions";
+import { CHANGE_NAME, EXAMPLE_ACTION } from "./actions";
 
 const initionalState = {
     showName: false,
@@ -13,6 +13,14 @@ const profileReducer = (state = initionalState, action) => {
                 ...state,
                 showName: !state.showName
             }
+        
+        case CHANGE_NAME:
+            console.log(action);
+            return {
+                ...state,
+                name:action.payload
+                
+            }    
         default:
             return state;
     }
