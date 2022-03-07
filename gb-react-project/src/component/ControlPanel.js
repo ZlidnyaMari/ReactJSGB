@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { AUTORS } from '../constant/constant';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Send } from "@mui/icons-material";
@@ -31,19 +30,6 @@ export default function ControlPanel() {
       setValue('');
     }
   };
-
-//   useEffect(() => {
-//   if (messegeList.length > 0 && messegeList[messegeList.length - 1].author !== AUTORS.bot) {
-//     setTimeout(() => setMessegeList([...messegeList, {
-
-//       icon: <AndroidIcon />,
-//       text: 'Привет, я бот',
-//       author: AUTORS.bot,
-
-//     }]), 1500)
-//   }
-// }, [messegeList])
-
 
   return (
     <div className='messenger'>

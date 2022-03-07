@@ -18,8 +18,8 @@ const messages = allMessages[chatId];
   return (
       <div className='messegelist'>
         <List>
-          {messages?.map((item) => (
-            <ListItem disable='true' key={item.id}>
+          {messages?.map((item, index) => (
+            <ListItem disable='true' key={index}>
               <ListItemIcon>{item.author !== AUTORS.bot ? <MessageIcon /> : <AndroidIcon />}</ListItemIcon>
               <ListItemText primary={item.text} secondary= {item.author} />
             </ListItem>
