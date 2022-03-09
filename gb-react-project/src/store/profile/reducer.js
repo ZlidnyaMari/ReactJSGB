@@ -15,7 +15,6 @@ const profileReducer = (state = initionalState, action) => {
             }
         
         case CHANGE_NAME:
-            console.log(action);
             return {
                 ...state,
                 name:action.payload
