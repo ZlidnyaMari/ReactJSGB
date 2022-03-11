@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import Notfound from './pages/Notfound';
 import { ListItemButton } from '@mui/material';
 import { Routes, Route, Link } from 'react-router-dom';
+import Gists from './pages/Gists';
 
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
               <Link to='/Chats'>Chats</Link>
             </ListItemButton>
           </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Link to='/Gists'>Gists</Link>
+            </ListItemButton>
+          </ListItem>
         </List>
       </nav>
 
@@ -43,6 +49,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/gists' element={<Gists />} />
           <Route path='/chats/:chatId' element={
             <Chats />} />
           <Route path='*' element={ <Notfound /> } />
