@@ -5,7 +5,8 @@ import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Send } from "@mui/icons-material";
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage, addMessageWithThunk } from '../store/messages/actions';
+//import { addMessage, addMessageWithThunk } from '../store/messages/actions';
+import { addMessageWithFB } from '../store/middleware';
 
 
 
@@ -27,7 +28,7 @@ export default function ControlPanel() {
         author: name
       }
       //dispatch(addMessage(chatId, message));
-      dispatch(addMessageWithThunk(chatId, message));
+      dispatch(addMessageWithFB(chatId, message));
       setValue('');
     }
   };

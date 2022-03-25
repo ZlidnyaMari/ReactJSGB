@@ -1,6 +1,6 @@
 import { AUTORS } from "../../constant/constant";
-
 export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const UPDATE_MESSAGES = 'UPDATE_MRSSAGES';
 
 export const addMessage = (chatId, message ) => ({
     type: ADD_MESSAGE,
@@ -24,3 +24,9 @@ export const addMessageWithThunk = (chatId, message) => (dispatch, getState) => 
         }, 1000);
     }
 }
+
+export const updateMessages = (chatId, messages) => ({
+    type: UPDATE_MESSAGES,
+    chatId,
+    messages
+})
